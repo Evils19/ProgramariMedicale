@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramariMedicale.API", "ProgramariMedicale.API\ProgramariMedicale.API.csproj", "{6A5C4DAD-986C-4832-96A1-D761D5374C86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{72F4A95A-46FB-40DD-9254-55B4247F5082}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramariMedicale.Aplication", "ProgramariMedicale.Aplication\ProgramariMedicale.Aplication.csproj", "{51485091-5BCA-4846-B97B-8739859BE7E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramariMedicale.Common", "ProgramariMedicale.Common\ProgramariMedicale.Common.csproj", "{B70300F5-427C-4549-8460-F94426E25FA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramariMedicale.Infrastructure", "ProgramariMedicale.Infrastructure\ProgramariMedicale.Infrastructure.csproj", "{4023E46D-1CC5-4BD7-8335-15060407ADB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramariMedicale.Domain", "ProgramariMedicale.Domain\ProgramariMedicale.Domain.csproj", "{D012DB0C-F135-40A0-8DEB-B2946BB2D521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{C09B35BE-EC8A-4119-B89A-41B97CE5C8D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A5C4DAD-986C-4832-96A1-D761D5374C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5C4DAD-986C-4832-96A1-D761D5374C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5C4DAD-986C-4832-96A1-D761D5374C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5C4DAD-986C-4832-96A1-D761D5374C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51485091-5BCA-4846-B97B-8739859BE7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51485091-5BCA-4846-B97B-8739859BE7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51485091-5BCA-4846-B97B-8739859BE7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51485091-5BCA-4846-B97B-8739859BE7E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70300F5-427C-4549-8460-F94426E25FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70300F5-427C-4549-8460-F94426E25FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70300F5-427C-4549-8460-F94426E25FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70300F5-427C-4549-8460-F94426E25FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4023E46D-1CC5-4BD7-8335-15060407ADB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4023E46D-1CC5-4BD7-8335-15060407ADB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4023E46D-1CC5-4BD7-8335-15060407ADB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4023E46D-1CC5-4BD7-8335-15060407ADB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D012DB0C-F135-40A0-8DEB-B2946BB2D521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D012DB0C-F135-40A0-8DEB-B2946BB2D521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D012DB0C-F135-40A0-8DEB-B2946BB2D521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D012DB0C-F135-40A0-8DEB-B2946BB2D521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09B35BE-EC8A-4119-B89A-41B97CE5C8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09B35BE-EC8A-4119-B89A-41B97CE5C8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09B35BE-EC8A-4119-B89A-41B97CE5C8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09B35BE-EC8A-4119-B89A-41B97CE5C8D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

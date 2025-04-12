@@ -1,0 +1,6 @@
+﻿services:
+  programarimedicale:
+    image: programarimedicale
+    build:
+      context: .
+      dockerfile: ProgramariMedicale/Dockerfile

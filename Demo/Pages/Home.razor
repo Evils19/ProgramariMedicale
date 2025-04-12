@@ -1,0 +1,497 @@
+﻿@page "/asistent-medical"
+@using System.Net.Http
+@using System.Text
+@using System.Text.Json
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+
+<div class="chat-container">
+    <div class="chat-header">
+        <h3>Asistent Medical Virtual</h3>
+        <p>Descrieți simptomele și vă vom recomanda instituțiile potrivite</p>
+    </div>
+
+    <div class="chat-messages" id="messageContainer">
+        <!-- Mesajele vor fi afișate aici -->
+        @foreach (var message in messages)
+        {
+            <div class="message @(message.IsFromUser ? "user-message" : "ai-message")">
+                <div class="message-avatar">
+                    @if (message.IsFromUser)
+                    {
+                        <i class="oi oi-person"></i>
+                    }
+                    else
+                    {
+                        <i class="oi oi-medical-cross"></i>
+                    }
+                </div>
+                <div class="message-content">
+                    <div class="message-sender">@(message.IsFromUser ? "Dvs." : "Asistent Medical")</div>
+                    <div class="message-text">@((MarkupString)message.Content)</div>
+                    <div class="message-time">@message.Timestamp.ToString("HH:mm")</div>
+                </div>
+            </div>
+        }
+
+        @if (isLoading)
+        {
+            <div class="message ai-message">
+                <div class="message-avatar">
+                    <i class="oi oi-medical-cross"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-sender">Asistent Medical</div>
+                    <div class="message-text">
+                        <div class="loading-indicator">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="chat-input">
+        <textarea
+            @bind="userInput"
+            @bind:event="oninput"
+            @onkeydown="HandleKeyPress"
+            placeholder="Descrieți simptomele dvs. sau problemele medicale..."
+            disabled="@isLoading"
+            rows="2"></textarea>
+        <button @onclick="SendMessage" disabled="@(string.IsNullOrWhiteSpace(userInput) || isLoading)">
+            <i class="oi oi-arrow-right"></i>
+        </button>
+    </div>
+</div>
+
+<style>
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        max-width: 800px;
+        margin: 0 auto;
+        border: 1px solid #e1e1e1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+    }
+
+    @@media (max-width: 850px) {
+    .chat-container {
+        max-width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        height: 100vh;
+        margin: 0;
+    }
+    }
+
+    .chat-header {
+        padding: 15px;
+        background-color: #4285F4;
+        color: white;
+        text-align: center;
+    }
+
+    .chat-header h3 {
+        margin-bottom: 5px;
+    }
+
+    .chat-header p {
+        margin: 0;
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    .chat-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+
+    .chat-messages::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 3px;
+    }
+
+    .message {
+        display: flex;
+        margin-bottom: 15px;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @@keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .user-message .message-avatar {
+        background-color: #4285F4;
+        color: white;
+    }
+
+    .ai-message .message-avatar {
+        background-color: #34A853;
+        color: white;
+    }
+
+    .message-content {
+        background-color: white;
+        padding: 10px 15px;
+        border-radius: 18px;
+        max-width: calc(100% - 60px);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        word-wrap: break-word;
+    }
+
+    .user-message {
+        flex-direction: row-reverse;
+    }
+
+    .user-message .message-avatar {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+
+    .user-message .message-content {
+        background-color: #4285F4;
+        color: white;
+    }
+
+    .message-sender {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .user-message .message-sender {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .message-text {
+        line-height: 1.5;
+    }
+
+    .message-time {
+        font-size: 12px;
+        color: #888;
+        text-align: right;
+        margin-top: 5px;
+    }
+
+    .user-message .message-time {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .chat-input {
+        display: flex;
+        padding: 15px;
+        background-color: white;
+        border-top: 1px solid #e1e1e1;
+    }
+
+    .chat-input textarea {
+        flex: 1;
+        padding: 10px 15px;
+        border: 1px solid #e1e1e1;
+        border-radius: 20px;
+        outline: none;
+        font-size: 16px;
+        transition: border-color 0.3s;
+        resize: none;
+        max-height: 100px;
+        overflow-y: auto;
+    }
+
+    .chat-input textarea:focus {
+        border-color: #4285F4;
+    }
+
+    .chat-input button {
+        width: 44px;
+        height: 44px;
+        margin-left: 10px;
+        background-color: #4285F4;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chat-input button:hover {
+        background-color: #3367d6;
+    }
+
+    .chat-input button:disabled {
+        background-color: #a4c2f4;
+        cursor: not-allowed;
+    }
+
+    .loading-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 8px 0;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        background-color: #34A853;
+        border-radius: 50%;
+        margin: 0 3px;
+        animation: bounce 1.4s infinite ease-in-out;
+    }
+
+    .dot:nth-child(1) {
+        animation-delay: -0.32s;
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: -0.16s;
+    }
+
+    @@keyframes bounce {
+        0%, 80%, 100% { transform: scale(0); }
+        40% { transform: scale(1.0); }
+    }
+
+    /* Pentru butonul de info și overlay */
+    .info-button {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255,255,255,0.2);
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    @@media (max-width: 500px) {
+    .message-content {
+        max-width: calc(100% - 50px);
+    }
+
+    .chat-input {
+        padding: 10px;
+    }
+
+    .message-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    }
+</style>
+
+@code {
+    private string userInput = "";
+    private List<ChatMessage> messages = new List<ChatMessage>();
+    private bool isLoading = false;
+    private string serverUrl = "https://api.exemplu.ro/asistent-medical"; // Se va înlocui cu URL-ul real al API-ului
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Mesaj de bun venit
+            messages.Add(new ChatMessage
+            {
+                Content = "Bună ziua! Sunt asistentul medical virtual. Vă pot ajuta să găsiți instituția medicală potrivită pentru problema dvs. Vă rog să descrieți simptomele sau problemele medicale.",
+                IsFromUser = false,
+                Timestamp = DateTime.Now
+            });
+
+            StateHasChanged();
+            await ScrollToBottom();
+        }
+        else if (messages.Count > 0)
+        {
+            await ScrollToBottom();
+        }
+    }
+
+    private async Task ScrollToBottom()
+    {
+        await JSRuntime.InvokeVoidAsync("scrollToBottom", "messageContainer");
+    }
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !e.ShiftKey && !string.IsNullOrWhiteSpace(userInput) && !isLoading)
+        {
+            await SendMessage();
+        }
+    }
+
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(userInput) || isLoading)
+            return;
+
+        // Adaugă mesajul utilizatorului
+        var userMessage = new ChatMessage
+        {
+            Content = userInput.Trim(),
+            IsFromUser = true,
+            Timestamp = DateTime.Now
+        };
+        messages.Add(userMessage);
+
+        // Șterge input-ul și actualizează UI-ul
+        string userQuery = userInput;
+        userInput = "";
+        isLoading = true;
+        StateHasChanged();
+        await ScrollToBottom();
+
+        try
+        {
+            // Trimite cererea către server și așteaptă răspunsul
+            string serverResponse = await GetServerResponse(userQuery);
+
+            // Adaugă răspunsul AI
+            messages.Add(new ChatMessage
+            {
+                Content = serverResponse,
+                IsFromUser = false,
+                Timestamp = DateTime.Now
+            });
+        }
+        catch (Exception ex)
+        {
+            // Gestionare erori
+            messages.Add(new ChatMessage
+            {
+                Content = $"Ne pare rău, a apărut o eroare în timpul procesării cererii dvs. Vă rugăm să încercați din nou mai târziu. Detalii: {ex.Message}",
+                IsFromUser = false,
+                Timestamp = DateTime.Now
+            });
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+            await ScrollToBottom();
+        }
+    }
+
+    // Metoda pentru trimiterea cererii către server și primirea răspunsului
+    private async Task<string> GetServerResponse(string userQuery)
+    {
+        try
+        {
+            // Pregătirea datelor pentru cererea POST
+            var requestData = new
+            {
+                query = userQuery,
+                timestamp = DateTime.Now,
+                // Se pot adăuga și alte informații necesare serverului
+            };
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(requestData),
+                Encoding.UTF8,
+                "application/json"
+            );
+
+            // Trimiterea cererii POST către server
+            var response = await Http.PostAsync(serverUrl, content);
+
+            // Verificarea statusului răspunsului
+            if (response.IsSuccessStatusCode)
+            {
+                // Citirea și returnarea răspunsului JSON
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var responseObj = JsonSerializer.Deserialize<ServerResponse>(jsonResponse);
+                return responseObj?.Response ?? "Nu am putut procesa răspunsul de la server.";
+            }
+            else
+            {
+                // Tratarea erorilor de server
+                return $"Eroare de comunicare cu serverul: {response.StatusCode}. Vă rugăm să încercați din nou mai târziu.";
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            // Tratarea erorilor de rețea
+            return "Nu s-a putut stabili o conexiune cu serverul. Verificați conexiunea la internet și încercați din nou.";
+        }
+        catch (Exception ex)
+        {
+            // Tratarea altor tipuri de erori
+            return "A apărut o eroare neașteptată. Vă rugăm să încercați din nou mai târziu.";
+        }
+    }
+
+    // Clasă pentru structura răspunsului serverului
+    private class ServerResponse
+    {
+        public string Response { get; set; }
+        public List<Institution> RecommendedInstitutions { get; set; }
+    }
+
+    private class Institution
+    {
+        public string Name { get; set; }
+        public string Department { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+    }
+
+    // Clasa pentru mesajele din chat
+    public class ChatMessage
+    {
+        public string Content { get; set; }
+        public bool IsFromUser { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+
+    // JavaScript pentru scroll
+    protected override async Task OnInitializedAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("eval", @"
+            window.scrollToBottom = function(elementId) {
+                var element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollTop = element.scrollHeight;
+                }
+            }
+        ");
+    }
+}

@@ -1,0 +1,11 @@
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\bin\Debug\net8.0\ProgramariMedicale.Common.deps.json
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\bin\Debug\net8.0\ProgramariMedicale.Common.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\bin\Debug\net8.0\ProgramariMedicale.Common.pdb
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\ProgramariMedicale.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\ProgramariMedicale.Common.AssemblyInfoInputs.cache
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\ProgramariMedicale.Common.AssemblyInfo.cs
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\ProgramariMedicale.Common.csproj.CoreCompileInputs.cache
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\ProgramariMedicale.Common.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\refint\ProgramariMedicale.Common.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\ProgramariMedicale.Common.pdb
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Common\obj\Debug\net8.0\ref\ProgramariMedicale.Common.dll

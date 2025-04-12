@@ -1,0 +1,15 @@
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\bin\Debug\net8.0\ProgramariMedicale.Domain.deps.json
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\bin\Debug\net8.0\ProgramariMedicale.Domain.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\bin\Debug\net8.0\ProgramariMedicale.Domain.pdb
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\bin\Debug\net8.0\ProgramariMedicale.Common.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\bin\Debug\net8.0\ProgramariMedicale.Common.pdb
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.csproj.AssemblyReference.cache
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.AssemblyInfoInputs.cache
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.AssemblyInfo.cs
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.csproj.CoreCompileInputs.cache
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\Programa.BD4F255F.Up2Date
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\refint\ProgramariMedicale.Domain.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.pdb
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ref\ProgramariMedicale.Domain.dll
