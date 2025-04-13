@@ -6,4 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Demo\Demo.csproj" />
+      <ProjectReference Include="..\ProgramariMedicale.Common\ProgramariMedicale.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Azure.AI.Inference" Version="1.0.0-beta.4" />
+    </ItemGroup>
+
 </Project>

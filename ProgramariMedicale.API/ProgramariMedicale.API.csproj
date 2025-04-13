@@ -25,6 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ProgramariMedicale.Aplication\ProgramariMedicale.Aplication.csproj" />
       <ProjectReference Include="..\ProgramariMedicale.Infrastructure\ProgramariMedicale.Infrastructure.csproj" />
     </ItemGroup>
 

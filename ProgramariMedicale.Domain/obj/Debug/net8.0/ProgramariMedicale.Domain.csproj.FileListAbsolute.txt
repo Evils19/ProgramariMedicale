@@ -13,3 +13,4 @@ D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\Progra
 D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\refint\ProgramariMedicale.Domain.dll
 D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.pdb
 D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ref\ProgramariMedicale.Domain.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Domain\obj\Debug\net8.0\ProgramariMedicale.Domain.sourcelink.json

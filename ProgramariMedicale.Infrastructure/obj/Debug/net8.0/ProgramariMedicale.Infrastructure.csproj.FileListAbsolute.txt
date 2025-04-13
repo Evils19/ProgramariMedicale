@@ -17,3 +17,4 @@ D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Infrastructure\obj\Debug\net8.
 D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Infrastructure\obj\Debug\net8.0\ProgramariMedicale.Infrastructure.pdb
 D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Infrastructure\obj\Debug\net8.0\ProgramariMedicale.Infrastructure.genruntimeconfig.cache
 D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Infrastructure\obj\Debug\net8.0\ref\ProgramariMedicale.Infrastructure.dll
+D:\С# .NET\ProgramariMedicale\ProgramariMedicale.Infrastructure\obj\Debug\net8.0\ProgramariMedicale.Infrastructure.sourcelink.json

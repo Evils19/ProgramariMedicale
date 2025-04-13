@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Demo",
   "resources": {
-    "hash": "sha256-PyCeDMevK48bD0GpvDouiJrIY2+KLG2ThJasxxCNsX4=",
+    "hash": "sha256-bZJJvKTnO/5cTSHC1M5QKHlwraApiMQLJ+Gk//Z5PkA=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.gc0hi6ixb5.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -208,10 +208,12 @@
       "mscorlib.wasm": "sha256-KvqZaNpjwhrOuzE4b4aMFsI+VUTyiWfoDI4zn4l9BM8=",
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
-      "Demo.wasm": "sha256-AOmYnhOr0+lwvQ66lCU0NjHo7gp5HQY3lMg52Y+vojs="
+      "ProgramariMedicale.Common.wasm": "sha256-KtSbi+5mhPcY/3nprjMtP0kM+5ZoZ7fun6k1ax2Ex1w=",
+      "Demo.wasm": "sha256-TiyIMAlUDSkkMFGcMs8+a39qsuhQVUSRB19EzC1vqcs="
     },
     "pdb": {
-      "Demo.pdb": "sha256-Dv34WpiA1vdCk/1lb7CyK3g/EYDI9QsdA6sNKj2rZDw="
+      "ProgramariMedicale.Common.pdb": "sha256-g3d069a+wRJOT2YdZvYHGox8WZMy7KKG8sKaER+ezV8=",
+      "Demo.pdb": "sha256-nWjAZKbDe/w3u470VslDd5wRHznV4IwSbzQwoeexVuU="
     }
   },
   "cacheBootResources": true,

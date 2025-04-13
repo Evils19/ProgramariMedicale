@@ -1029,3 +1029,14 @@ D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\Demo.dll
 D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\refint\Demo.dll
 D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\Demo.pdb
 D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\ref\Demo.dll
+D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\Demo.sourcelink.json
+D:\С# .NET\ProgramariMedicale\Demo\bin\Debug\net8.0\wwwroot\_framework\ProgramariMedicale.Common.pdb
+D:\С# .NET\ProgramariMedicale\Demo\bin\Debug\net8.0\wwwroot\_framework\ProgramariMedicale.Common.wasm
+D:\С# .NET\ProgramariMedicale\Demo\bin\Debug\net8.0\wwwroot\_framework\ProgramariMedicale.Common.wasm.gz
+D:\С# .NET\ProgramariMedicale\Demo\bin\Debug\net8.0\wwwroot\_framework\ProgramariMedicale.Common.pdb.gz
+D:\С# .NET\ProgramariMedicale\Demo\bin\Debug\net8.0\ProgramariMedicale.Common.dll
+D:\С# .NET\ProgramariMedicale\Demo\bin\Debug\net8.0\ProgramariMedicale.Common.pdb
+D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\webcil\ProgramariMedicale.Common.wasm
+D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css
+D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\compressed\nj3fxu6y4a.gz
+D:\С# .NET\ProgramariMedicale\Demo\obj\Debug\net8.0\compressed\u1d8uqpawv.gz
